@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="de">
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flächenberechnung durch Integration</title>
+  
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>  
+  
+</head>
+<body style="background-color: white;">
+
+    <style> 
+         
+        .Text1 {font-size: 1.5em;font-family: Verdana,Sans-serif; margin:0.5em;}
+        .Text2 { font-size: 1em; font-family: Verdana,Sans-serif;margin-top:1em;margin-left:0.5em;}
+        .Text3 { font-size: 0.6em; font-family: monospace,monospace;margin:0.5em; }
+        
+        body { margin: 0; font-family: Verdana,Sans-serif; font-size: 1.05rem; line-height: 1.2; background: #fff; }  
+       main { max-width: 40rem; margin: 0 auto; padding: 1rem; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1rem; margin: 1.4rem 0 0.3rem; }
+.check input { font-size: 1.05rem; padding: 0.2rem; width: 4rem; }
+.check button { font-size: 1.05rem; padding: 0.2rem 0.6rem; } 
+.br-mobil {
+            display: none;}
+.br-desk {
+            display: block;}
+.desktop-break {
+            display: block;
+                 content: "";   
+                 height: 0.8em;  }
+.desktop-plus {
+            display: inline-block;}
+.mobile-break {
+            display: none; }            
+.mobile-plus {
+            display: none;}  
+
+@media screen and (max-width: 576px) {
+
+            .br-mobil {
+                display: block;}
+
+            .br-desk {
+                display: none;} 
+
+            .desktop-break {
+                display: none; }    
+                
+            .desktop-plus {
+                display: none; }
+
+            .mobile-break {
+                 display: block;
+                 content: "";   
+                 height: 0.8em;  }                
+                          
+            .mobile-plus {
+                 display: inline-block; }
+                           
+                }
+
+        input {background-color:yellow; }
+
+        img {
+               max-width: 100%;
+               height: auto;
+               display: block;
+            }    
+        
+    </style>
+
+    <main>
+
+    <p class="Text1">Wie löse ich Matheaufgaben?</p>
+    <p class="Text2"><b>Flächenberechnung durch Integration<br>Flächeninhalt zwischen Graph und x-Achse</p></b> 
+		
+    <p class="Text2"><span style= "background-color:white;">Sie sehen ein gelbes Eingabefeld und die <br>Schalter: Prüfen und Lösung.</span></p>
+		<p class="Text2"><span style= "background-color:white;">Tragen Sie Ihr Ergebnis ein, prüfen Sie es <br> oder starten Sie eine Lösung.</span></p>
+
+        
+<div class="check">
+
+<!--//Aufgabe 1-->
+
+  <h2>Aufgabe 1</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn><mi mathvariant="normal">x</mi></math></p>
+
+<button  onclick="window.open('Diskuss_Aufgabe1.html');" >Lösung</button></p>
+
+<!--//Aufgabe 2-->
+
+  <h2>Aufgabe 2</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>3</mn><mi mathvariant="normal">x</mi></math></p>
+
+A = <input type="text" id="Eintrag2" maxlength="2" > </input> FE <button id="Pruef2" onclick="Aufgabe2()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe2() { 
+                                                
+                          if (Eintrag2.value=="18") {alert("Richtig"); document.getElementById("Pruef2").disabled= true;
+                          }  
+                           
+                          else if (Eintrag2.value!="18" && Eintrag2.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag2").value="18"; window.open('Diskuss_Aufgabe2.html');           
+                          document.getElementById("Pruef2").disabled= true;}
+                               
+                          else if (Eintrag2.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+                      
+
+        <!--//Aufgabe 3-->                  
+
+  <h2>Aufgabe 3</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>3</mn></math></p>
+
+<button  onclick="window.open('Diskuss_Aufgabe3.html');" >Lösung</button></p>
+
+<!--//Aufgabe 4-->
+
+<h2>Aufgabe 4</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>4</mn></msup><mo>&#x2212;</mo><mn>4</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+           
+A = <input type="text" id="Eintrag4" maxlength="4" ></input> FE <button id="Pruef4" onclick="Aufgabe4()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe4() { 
+                                                
+                          if (Eintrag4.value=="8,54") {alert("Richtig"); document.getElementById("Pruef4").disabled= true;
+                          }  
+                           
+                          else if (Eintrag4.value!=="8,54" && Eintrag4.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag4").value="8,54"; window.open('Diskuss_Aufgabe4.html');           
+                          document.getElementById("Pruef4").disabled= true;}
+                               
+                          else if (Eintrag4.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+
+ <!--//Aufgabe 5-->  
+
+  <h2>Aufgabe 5</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>4</mn></msup><mo>+</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup></math></p>
+
+<button  onclick="window.open('Diskuss_Aufgabe5.html');">Lösung</button></p>
+
+<!--//Aufgabe 6-->
+
+  <h2>Aufgabe 6</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>+</mo><mn>4</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>6</mn><mi mathvariant="normal">x</mi></math></p>
+                
+A = <input type="text" id="Eintrag6" maxlength="3" ></input> FE <button id="Pruef6" onclick="Aufgabe6()">Prüfen</button> </p>
+                      <script>
+                        function Aufgabe6() { 
+                                                
+                          if (Eintrag6.value=="4,5") {alert("Richtig"); document.getElementById("Pruef6").disabled= true;
+                          }  
+                           
+                          else if (Eintrag6.value!=="4,5" && Eintrag6.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag6").value="4,5"; window.open('Diskuss_Aufgabe6.html');           
+                          document.getElementById("Pruef6").disabled= true;}
+                               
+                          else if (Eintrag6.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+                      
+  <!--//Aufgabe 7-->   
+
+  <h2>Aufgabe 7</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>5</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>5</mn><mi mathvariant="normal">x</mi></math></p>
+ 
+<button  onclick="window.open('Diskuss_Aufgabe7.html');" >Lösung</button></p>
+
+<!--//Aufgabe 8-->
+
+  <h2>Aufgabe 8</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><msup><mi mathvariant="normal">x</mi><mn>4</mn></msup><mo>+</mo><mn>6</mn><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>9</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+A = <input type="text" id="Eintrag8" maxlength="3" ></input> FE <button id="Pruef8" onclick="Aufgabe8()">Prüfen</button>
+     
+                      <script>
+                        function Aufgabe8() { 
+                                                
+                          if (Eintrag8.value=="8,1") {alert("Richtig"); document.getElementById("Pruef8").disabled= true;
+                          }  
+                           
+                          else if (Eintrag8.value!=="8,1" && Eintrag8.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag8").value="8,1"; window.open('Diskuss_Aufgabe8.html');           
+                          document.getElementById("Pruef8").disabled= true;}
+                               
+                          else if (Eintrag8.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script> 
+                      
+  <!--//Aufgabe 9-->   
+
+  <h2>Aufgabe 9</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>4</mn></msup><mo>&#x2212;</mo><mfrac><mrow><mo>&#xA0;</mo><mn>5</mn><mo>&#xA0;</mo></mrow><mn>2</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>6</mn></math></p>
+
+<button  onclick="window.open('Diskuss_Aufgabe9.html');" >Lösung</button></p>
+
+<!--//Aufgabe 10-->
+
+  <h2>Aufgabe 10</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>4</mn></msup><mo>+</mo><mn>3</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>9</mn></math></p>
+
+A = <input type="text" id="Eintrag10" maxlength="5" ></input> FE <button id="Pruef10" onclick="Aufgabe10()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe10() { 
+                                                
+                          if (Eintrag10.value=="19,58") {alert("Richtig"); document.getElementById("Pruef10").disabled= true;
+                          }  
+                           
+                          else if (Eintrag10.value!=="19,58" && Eintrag10.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag10").value="19,58"; window.open('Diskuss_Aufgabe10.html');           
+                          document.getElementById("Pruef10").disabled= true;}
+                               
+                          else if (Eintrag10.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+
+                      </script>                                   
+
+ <!--//Aufgabe 11-->   
+
+  <h2>Aufgabe 11</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>4</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>6</mn><mi mathvariant="normal">x</mi></math></p>
+
+<button  onclick="window.open('Diskuss_Aufgabe11.html');" >Lösung</button></p>
+
+<!--//Aufgabe 12-->
+
+  <h2>Aufgabe 12</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>4</mn></msup><mo>+</mo><mfrac><mn>5</mn><mn>2</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+A = <input type="text" id="Eintrag13" maxlength="4" ></input> <button id="Pruef13" onclick="Aufgabe13()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe13() { 
+                                                
+                          if (Eintrag13.value=="21,1") {alert("Richtig"); document.getElementById("Pruef13").disabled= true;
+                          }  
+                           
+                          else if (Eintrag13.value!=="21,1" && Eintrag13.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag13").value="21,1"; window.open('Diskuss_Aufgabe12.html');           
+                          document.getElementById("Pruef13").disabled= true;}
+                               
+                          else if (Eintrag13.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+                      
+     <!--//Aufgabe 13--> 
+                      
+    <h2>Aufgabe 13</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>4</mn></msup><mo>&#x2212;</mo><mn>3</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>9</mn></math></p>
+
+<button  onclick="window.open('Diskuss_Aufgabe13.html');" >Lösung</button></p>
+
+<!--//Aufgabe 14-->
+
+  <h2>Aufgabe 14</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">u</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>4</mn><msup><mi mathvariant="normal">u</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn><mi mathvariant="normal">u</mi></math></p>
+
+A = <input type="text" id="Eintrag15" maxlength="4" ></input> FE <button id="Pruef15" onclick="Aufgabe15()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe15() { 
+                                                
+                          if (Eintrag15.value=="1,33") {alert("Richtig"); document.getElementById("Pruef15").disabled= true;
+                          }  
+                           
+                          else if (Eintrag15.value!=="1,33" && Eintrag15.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag15").value="1,33"; window.open('Diskuss_Aufgabe14.html');           
+                          document.getElementById("Pruef15").disabled= true;}
+                               
+                          else if (Eintrag15.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+
+<!--//Aufgabe 15-->
+
+  <h2>Aufgabe 15</h2><p>
+
+Berechnen Sie den Flächeninhalt A, der von
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mrow><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup></mrow><mn>10</mn></mfrac></math>, der x-Achse und den Geraden x = 0,5
+und x = 2,5 begrenzt wird.</p>    
+
+<button  onclick="window.open('Diskuss_Aufgabe15.html');" >Lösung</button></p>
+
+<!--//Aufgabe 16-->
+
+  <h2>Aufgabe 16</h2><p>
+
+Berechnen Sie den Flächeninhalt A, der von
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi mathvariant="normal">x</mi></math> der x-Achse und den Geraden x = 7 und
+
+x = 10 begrenzt wird.  </p>
+
+A = <input type="text" id="Eintrag17" maxlength="4"  FE > </input> <button id="Pruef17" onclick="Aufgabe17()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe17() { 
+                                                
+                          if (Eintrag17.value=="25,5") {alert("Richtig"); document.getElementById("Pruef17").disabled= true;
+                          }  
+                           
+                          else if (Eintrag17.value!=="25,5" && Eintrag17.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag17").value="25,5"; window.open('Diskuss_Aufgabe16.html');           
+                          document.getElementById("Pruef17").disabled= true;}
+                               
+                          else if (Eintrag17.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+                      
+
+        <!--//Aufgabe 17-->                  
+
+  <h2>Aufgabe 17</h2><p>
+
+Berechnen Sie den Flächeninhalt A, der von 
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mi mathvariant="normal">x</mi><mo>+</mo><mn>3</mn></math>, der x-Achse und den Geraden 
+x = -2 und x = 4 begrenzt wird.</p>
+
+<button  onclick="window.open('Diskuss_Aufgabe18.html');" >Lösung</button></p>
+
+<!--//Aufgabe 18-->
+
+<h2>Aufgabe 18</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>2</mn><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>35</mn></math></p>
+           
+A = <input type="text" id="Eintrag19" maxlength="3"  ></input> </input> FE <button id="Pruef19" onclick="Aufgabe19()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe19() { 
+                                                
+                          if (Eintrag19.value=="288") {alert("Richtig"); document.getElementById("Pruef19").disabled= true;
+                          }  
+                           
+                          else if (Eintrag19.value!=="288" && Eintrag19.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag19").value="288"; window.open('Diskuss_Aufgabe19.html');           
+                          document.getElementById("Pruef19").disabled= true;}
+                               
+                          else if (Eintrag19.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+
+ <!--//Aufgabe 19-->  
+
+  <h2>Aufgabe 19</h2><p>
+    
+Berechnen Sie den Flächeninhalt A, der von
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi>cos</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></math>, der x-Achse und den Geraden x = -π/2
+
+und x = 5π/6 begrenzt wird. </p>
+
+<button  onclick="window.open('Diskuss_Aufgabe20.html');">Lösung</button></p>
+
+<!--//Aufgabe 20-->
+
+  <h2>Aufgabe 20</h2><p>
+
+Berechnen Sie den Flächeninhalt A, der von
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>4</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mi mathvariant="normal">x</mi><mo>+</mo><mn>6</mn></math>, der <br class="br-desk">x-Achse und den Geraden
+
+x = -2 und x = 4 begrenzt wird. </p>
+
+A = <input type="text" id="Eintrag21" maxlength="5"  ></input> FE <button id="Pruef21" onclick="Aufgabe21()">Prüfen</button> </p>
+                      <script>
+                        function Aufgabe21() { 
+                                                
+                          if (Eintrag21.value=="24,34") {alert("Richtig"); document.getElementById("Pruef21").disabled= true;
+                          }  
+                           
+                          else if (Eintrag21.value!=="24,34" && Eintrag21.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag21").value="24,34"; window.open('Diskuss_Aufgabe21.html');           
+                          document.getElementById("Pruef21").disabled= true;}
+                               
+                          else if (Eintrag21.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+                      
+  <!--//Aufgabe 21-->   
+
+  <h2>Aufgabe 21</h2><p>
+
+Berechnen Sie den Flächeninhalt A, der von
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mi>x</mi></math>, der x-Achse und den Geraden x = 1
+
+und x = 2 begrenzt wird.  </p>
+ 
+<button  onclick="window.open('Diskuss_Aufgabe22.html');" >Lösung</button></p>
+
+<!--//Aufgabe 22-->
+
+  <h2>Aufgabe 22</h2><p>
+
+Berechnen Sie den Flächeninhalt A, der von
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn></math>, der x-Achse und den Geraden
+
+x = 0 und x = 4 begrenzt wird. </p>
+
+A = <input type="text" id="Eintrag23" maxlength="5"  ></input> FE <button id="Pruef23" onclick="Aufgabe23()">Prüfen</button></p>
+     
+                      <script>
+                        function Aufgabe23() { 
+                                                
+                          if (Eintrag23.value=="13,33") {alert("Richtig"); document.getElementById("Pruef23").disabled= true;
+                          }  
+                           
+                          else if (Eintrag23.value!=="13,33" && Eintrag23.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag23").value="13,33"; window.open('Diskuss_Aufgabe23.html');           
+                          document.getElementById("Pruef23").disabled= true;}
+                               
+                          else if (Eintrag23.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script> 
+                      
+  <!--//Aufgabe 23-->   
+
+  <h2>Aufgabe 23</h2><p>
+
+ Berechnen Sie den Flächeninhalt A, der von
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi>x</mi><mn>2</mn></msup></math>, der x-Achse und den Geraden x = -2
+und x = 3 begrenzt wird.</p>    
+
+<button  onclick="window.open('Diskuss_Aufgabe24.html');" >Lösung</button></p>
+
+<!--//Aufgabe 24-->
+
+  <h2>Aufgabe 24</h2><p>
+
+Berechnen Sie den Flächeninhalt A, der von
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mrow><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></mrow></mfrac><mo>+</mo><mn>1</mn></math>, der x-Achse und den Geraden
+
+x = 1 und x = 5 begrenzt wird.</p>         
+
+A = <input type="text" id="Eintrag25" maxlength="3"  ></input> <button id="Pruef25" onclick="Aufgabe25()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe25() { 
+                                                
+                          if (Eintrag25.value=="4,8") {alert("Richtig"); document.getElementById("Pruef25").disabled= true;
+                          }  
+                           
+                          else if (Eintrag25.value!=="4,8" && Eintrag25.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag25").value="4,8"; window.open('Diskuss_Aufgabe25.html');           
+                          document.getElementById("Pruef25").disabled= true;}
+                               
+                          else if (Eintrag25.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+
+                      </script>                                   
+
+ <!--//Aufgabe 25-->   
+
+  <h2>Aufgabe 25</h2><p>
+
+Berechnen Sie den Flächeninhalt A, der von
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mn>0</mn><mo>,</mo><mn>5</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math>, der x-Achse und den Geraden x = 0
+
+und x = 4 begrenzt wird.</p>
+
+<button  onclick="window.open('Diskuss_Aufgabe26.html');" >Lösung</button></p>
+
+           
+    <!--//Aufgabe 26--> 
+                      
+    <h2>Aufgabe 26</h2><p>
+
+Berechnen Sie den Flächeninhalt A, der von
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>3</mn><mi mathvariant="normal">x</mi></math>, der x-Achse und den Geraden
+
+x = 0 und x = 2 begrenzt wird.</p>
+
+A = <input type="text" id="Eintrag27" maxlength="4"  ></input> FE <button id="Pruef27" onclick="Aufgabe27()">Prüfen</button></p>
+
+<script>
+                        function Aufgabe27() { 
+                                                
+                          if (Eintrag27.value=="4,67") {alert("Richtig"); document.getElementById("Pruef27").disabled= true;
+                          }  
+                           
+                          else if (Eintrag27.value!=="4,67" && Eintrag27.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag27").value="4,67"; window.open('Diskuss_Aufgabe27.html');           
+                          document.getElementById("Pruef27").disabled= true;}
+                               
+                          else if (Eintrag27.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+
+<!--//Aufgabe 27-->                     
+
+  <h2>Aufgabe 27</h2><p>
+
+Berechnen Sie den Flächeninhalt A, der von
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mfrac><mn>1</mn><mrow><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></mrow></mfrac></math>, der x-Achse und den Geraden x = -10
+
+und x = -5 begrenzt wird.</p>
+
+<button  onclick="window.open('Diskuss_Aufgabe28.html');" >Lösung</button></p>                      
+
+<!--//Aufgabe 28-->
+
+  <h2>Aufgabe 28</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>0</mn><mo>,</mo><mn>5</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>3</mn><mi mathvariant="normal">x</mi></math></p>
+
+A = <input type="text" id="Eintrag29" maxlength="2"  ></input> FE <button id="Pruef29" onclick="Aufgabe29()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe29() { 
+                                                
+                          if (Eintrag29.value=="18") {alert("Richtig"); document.getElementById("Pruef29").disabled= true;
+                          }  
+                           
+                          else if (Eintrag29.value!=="18" && Eintrag29.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag29").value="18"; window.open('Diskuss_Aufgabe29.html');           
+                          document.getElementById("Pruef29").disabled= true;}
+                               
+                          else if (Eintrag29.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+                      
+     <!--//Aufgabe 29--> 
+                      
+    <h2>Aufgabe 29</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mfenced><mrow><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>1</mn></mrow></mfenced><mn>2</mn></msup><mo>&#x2212;</mo><mn>3</mn><mi mathvariant="normal">x</mi></math></p>
+
+<button  onclick="window.open('Diskuss_Aufgabe30.html');" >Lösung</button></p> 
+
+<!--//Aufgabe 30-->
+
+  <h2>Aufgabe 30</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>4</mn></msup><mo>&#x2212;</mo><mn>4</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+A = <input type="text" id="Eintrag31" maxlength="4"  ></input> FE <button id="Pruef31" onclick="Aufgabe31()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe31() { 
+                                                
+                          if (Eintrag31.value=="8,54") {alert("Richtig"); document.getElementById("Pruef31").disabled= true;
+                          }  
+                           
+                          else if (Eintrag31.value!=="8,54" && Eintrag31.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag31").value="8,54"; window.open('Diskuss_Aufgabe31.html');           
+                          document.getElementById("Pruef31").disabled= true;}
+                               
+                          else if (Eintrag31.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+
+     <!--//Aufgabe 32--> 
+                      
+    <h2>Aufgabe 32</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>2</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>2</mn><mo>,</mo><mn>75</mn><mi mathvariant="normal">x</mi><mo>+</mo><mn>3</mn><mo>,</mo><mn>75</mn></math></p>
+
+<button  onclick="window.open('Diskuss_Aufgabe32.html');" >Lösung</button></p> 
+
+<!--//Aufgabe 33-->
+
+  <h2>Aufgabe 33</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mn>0</mn><mo>,</mo><mn>25</mn><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>+</mo><mn>1</mn><mo>,</mo><mn>5</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>6</mn></math></p>
+
+Hochpunkt (?|6,16)</p>
+
+= <input type="text" id="Eintrag33" maxlength="4"  ></input> <button id="Pruef33" onclick="Aufgabe33()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe33() { 
+                                                
+                          if (Eintrag33.value=="4,31") {alert("Richtig"); document.getElementById("Pruef33").disabled= true;
+                          }  
+                           
+                          else if (Eintrag33.value!=="4,31" && Eintrag33.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag33").value="4,31"; window.open('Diskuss_Aufgabe33.html');           
+                          document.getElementById("Pruef33").disabled= true;}
+                               
+                          else if (Eintrag33.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+
+     <!--//Aufgabe 34-->                       
+                      
+    <h2>Aufgabe 34</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mn>0</mn><mo>,</mo><mn>5</mn><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>2</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>0</mn><mo>,</mo><mn>5</mn><mi mathvariant="normal">x</mi><mo>+</mo><mn>3</mn></math></p>
+
+<button  onclick="window.open('Diskuss_Aufgabe34.html');" >Lösung</button></p> 
+
+<!--//Aufgabe 35-->
+
+  <h2>Aufgabe 35</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mn>0</mn><mo>,</mo><mn>5</mn><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn><mo>,</mo><mn>5</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>4</mn></math></p>
+
+Hochpunkt (?|2,03)</p>
+
+? = <input type="text" id="Eintrag35" maxlength="4"  ></input> <button id="Pruef35" onclick="Aufgabe35()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe35() { 
+                                                
+                          if (Eintrag35.value=="3,12") {alert("Richtig"); document.getElementById("Pruef35").disabled= true;
+                          }  
+                           
+                          else if (Eintrag35.value!=="3,12" && Eintrag35.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag35").value="3,12"; window.open('Diskuss_Aufgabe35.html');           
+                          document.getElementById("Pruef35").disabled= true;}
+                               
+                          else if (Eintrag35.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script> 
+                      
+     <!--//Aufgabe 36-->                       
+                      
+    <h2>Aufgabe 36</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mn>0</mn><mo>,</mo><mn>25</mn><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>2</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>0</mn><mo>,</mo><mn>25</mn><mi mathvariant="normal">x</mi><mo>+</mo><mn>2</mn></math></p>
+
+<button  onclick="window.open('Diskuss_Aufgabe36.html');" >Lösung</button></p> 
+
+<!--//Aufgabe 37-->
+
+  <h2>Aufgabe 37</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>+</mo><mn>3</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>3</mn></math></p>
+
+Tiefpunkt (?|-3,08)</p>
+
+? = <input type="text" id="Eintrag37" maxlength="5"  ></input> <button id="Pruef37" onclick="Aufgabe37()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe37() { 
+                                                
+                          if (Eintrag37.value=="-0,16") {alert("Richtig"); document.getElementById("Pruef37").disabled= true;
+                          }  
+                           
+                          else if (Eintrag37.value!=="-0,16" && Eintrag37.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag37").value="-0,16"; window.open('Diskuss_Aufgabe37.html');           
+                          document.getElementById("Pruef37").disabled= true;}
+                               
+                          else if (Eintrag37.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+                      
+<!--//Aufgabe 38-->                       
+                      
+    <h2>Aufgabe 38</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfenced><mrow><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>6</mn></mrow></mfenced><mo>&#xd7;</mo><mfenced><mrow><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>1</mn></mrow></mfenced></math></p>
+
+<button  onclick="window.open('Diskuss_Aufgabe38.html');" >Lösung</button></p> 
+
+<!--//Aufgabe 39-->
+
+  <h2>Aufgabe 39</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>+</mo><mn>3</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>9</mn><mi mathvariant="normal">x</mi><mo>+</mo><mn>5</mn></math></p>
+
+Hochpunkt (?|32)</p>
+
+? = <input type="text" id="Eintrag39" maxlength="2"  ></input> <button id="Pruef39" onclick="Aufgabe39()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe39() { 
+                                                
+                          if (Eintrag39.value=="-3") {alert("Richtig"); document.getElementById("Pruef39").disabled= true;
+                          }  
+                           
+                          else if (Eintrag39.value!=="-3" && Eintrag39.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag39").value="-3"; window.open('Diskuss_Aufgabe39.html');           
+                          document.getElementById("Pruef39").disabled= true;}
+                               
+                          else if (Eintrag39.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+                      
+<!--//Aufgabe 40-->                       
+                      
+    <h2>Aufgabe 40</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>0</mn><mo>,</mo><mn>5</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>4</mn><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>1</mn></math></p>
+<button  onclick="window.open('Diskuss_Aufgabe40.html');" >Lösung</button></p> 
+
+<!--//Aufgabe 41-->
+
+  <h2>Aufgabe 41</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>0</mn><mo>,</mo><mn>5</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>2</mn><mi mathvariant="normal">x</mi><mo>+</mo><mn>5</mn></math></p>
+
+Tiefpunkt (?|1,67)</p>
+
+? = <input type="text" id="Eintrag41" maxlength="1"  ></input> <button id="Pruef41" onclick="Aufgabe41()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe41() { 
+                                                
+                          if (Eintrag41.value=="2") {alert("Richtig"); document.getElementById("Pruef41").disabled= true;
+                          }  
+                           
+                          else if (Eintrag41.value!=="2" && Eintrag41.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag41").value="2"; window.open('Diskuss_Aufgabe41.html');           
+                          document.getElementById("Pruef41").disabled= true;}
+                               
+                          else if (Eintrag41.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+                      
+<!--//Aufgabe 42-->                       
+                      
+    <h2>Aufgabe 42</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>8</mn><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>60</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>66</mn><mi mathvariant="normal">x</mi><mo>+</mo><mn>17</mn></math></p>
+
+<button  onclick="window.open('Diskuss_Aufgabe42.html');" >Lösung</button></p> 
+
+<!--//Aufgabe 43-->
+
+  <h2>Aufgabe 43</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>12</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>36</mn><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>12</mn></math></p>
+
+Hochpunkt (?|20) </p>
+
+? = <input type="text" id="Eintrag43" maxlength="1"  ></input> <button id="Pruef43" onclick="Aufgabe43()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe43() { 
+                                                
+                          if (Eintrag43.value=="2") {alert("Richtig"); document.getElementById("Pruef43").disabled= true;
+                          }  
+                           
+                          else if (Eintrag43.value!=="2" && Eintrag43.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag43").value="2"; window.open('Diskuss_Aufgabe43.html');           
+                          document.getElementById("Pruef43").disabled= true;}
+                               
+                          else if (Eintrag43.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+                      
+<!--//Aufgabe 44-->                       
+                      
+    <h2>Aufgabe 44</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>9</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>27</mn><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>19</mn></math></p>
+
+<button  onclick="window.open('Diskuss_Aufgabe44.html');" >Lösung</button></p> 
+
+<!--//Aufgabe 45-->
+
+  <h2>Aufgabe 45</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>+</mo><mn>12</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>48</mn><mi mathvariant="normal">x</mi><mo>+</mo><mn>56</mn></math></p>
+
+Sattelpunkt (?|-8)</p>
+
+? = <input type="text" id="Eintrag45" maxlength="1"  ></input>|-8) <button id="Pruef45" onclick="Aufgabe45()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe45() { 
+                                                
+                          if (Eintrag45.value=="4") {alert("Richtig"); document.getElementById("Pruef45").disabled= true;
+                          }  
+                           
+                          else if (Eintrag45.value!=="4" && Eintrag45.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag45").value="4"; window.open('Diskuss_Aufgabe45.html');           
+                          document.getElementById("Pruef45").disabled= true;}
+                               
+                          else if (Eintrag45.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+                      
+<!--//Aufgabe 46-->                       
+                      
+    <h2>Aufgabe 46</h2><p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>15</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>75</mn><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>117</mn></math></p>
+
+<button  onclick="window.open('Diskuss_Aufgabe46.html');" >Lösung</button></p>                      
+                      
+<a href= "index.html" ><p class="Text2" > <span style= "background-color:white;">zurück</span></p></a></div></main>
+                    
+        <script>
+            document.body.addEventListener("input", function(inputEvent) {
+              const eingabeFeld = inputEvent.target;
+              if (eingabeFeld.maxLength > 0 && eingabeFeld.value.length > eingabeFeld.maxLength) {
+                eingabeFeld.value = eingabeFeld.value.substr(0, eingabeFeld.maxLength);
+              }
+            })
+          </script><br>
+        
+         
+
+        </body></html>
+
+                      
+                    
