@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="de">
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flächenberechnung durch Integration</title>
+  
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>  
+  
+</head>
+<body style="background-color: white;">
+
+    <style> 
+         
+        .Text1 {font-size: 1.5em;font-family: Verdana,Sans-serif; margin:0.5em;}
+        .Text2 { font-size: 1em; font-family: Verdana,Sans-serif;margin-top:1em;margin-left:0.5em;}
+        .Text3 { font-size: 0.6em; font-family: monospace,monospace;margin:0.5em; }
+        
+        body { margin: 0; font-family: Verdana,Sans-serif; font-size: 1.05rem; line-height: 1.2; background: #fff; }  
+       main { max-width: 40rem; margin: 0 auto; padding: 1rem; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1rem; margin: 1.4rem 0 0.3rem; }
+.check input { font-size: 1.05rem; padding: 0.2rem; width: 4rem; }
+.check button { font-size: 1.05rem; padding: 0.2rem 0.6rem; } 
+.br-mobil {
+            display: none;}
+.br-desk {
+            display: block;}
+.desktop-break {
+            display: block;
+                 content: "";   
+                 height: 0.8em;  }
+.desktop-plus {
+            display: inline-block;}
+.mobile-break {
+            display: none; }            
+.mobile-plus {
+            display: none;}  
+
+@media screen and (max-width: 576px) {
+
+            .br-mobil {
+                display: block;}
+
+            .br-desk {
+                display: none;} 
+
+            .desktop-break {
+                display: none; }    
+                
+            .desktop-plus {
+                display: none; }
+
+            .mobile-break {
+                 display: block;
+                 content: "";   
+                 height: 0.8em;  }                
+                          
+            .mobile-plus {
+                 display: inline-block; }
+                           
+                }
+
+        input {background-color:yellow; }
+
+        img {
+               max-width: 100%;
+               height: auto;
+               display: block;
+            }    
+        
+    </style>
+
+    <main>
+
+    <p class="Text1">Wie löse ich Matheaufgaben?</p>
+    <p class="Text2"><b>Flächenberechnung durch Integration<br>Flächeninhalt A zwischen 2 Graphen</p></b> 
+		
+    <p class="Text2"><span style= "background-color:white;">Sie sehen ein gelbes Eingabefeld und die <br>Schalter: Prüfen und Lösung.</span></p>
+		<p class="Text2"><span style= "background-color:white;">Tragen Sie Ihr Ergebnis ein, prüfen Sie es <br> oder starten Sie eine Lösung.</span></p>
+
+
+<div class="check">
+
+<!--//Aufgabe 105-->
+
+  <h2>Aufgabe 105</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></math><p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>1</mn></math></p>
+
+von x = -2 bis x = 2.</p>
+
+<button  onclick="window.open('Integral_Aufgabe105.html');" >Lösung</button></p>
+
+<!--//Aufgabe 106-->
+
+  <h2>Aufgabe 106</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi mathvariant="normal">x</mi></math><p></p>    
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mfrac><mn>3</mn><mn>4</mn></mfrac><mi mathvariant="normal">x</mi></math></p>
+
+von x = -2 bis x = 2.</p>    
+
+A = <input type="text" id="Eintrag106" maxlength="1" > </input> FE <button id="Pruef106" onclick="Aufgabe106()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe106() { 
+                                                
+                          if (Eintrag106.value=="5") {alert("Richtig"); document.getElementById("Pruef106").disabled= true;
+                          }  
+                           
+                          else if (Eintrag106.value!="5" && Eintrag106.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag106").value="5"; window.open('Integral_Aufgabe106.html');           
+                          document.getElementById("Pruef106").disabled= true;}
+                               
+                          else if (Eintrag106.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+                      
+
+        <!--//Aufgabe 107-->                  
+
+  <h2>Aufgabe 107</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi mathvariant="normal">x</mi></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mrow><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup></mrow><mn>8</mn></mfrac></math></p>
+
+von x = -2 bis x = 2.</p>    
+
+<button  onclick="window.open('Integral_Aufgabe107.html');" >Lösung</button></p>
+
+<!--//Aufgabe 108-->
+
+<h2>Aufgabe 108</h2><p>
+
+ Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>2</mn></math></p>
+
+und 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mfrac><mn>1</mn><mn>8</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>4</mn></msup><mo>+</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+von x = -2 bis x = 2. </p>
+           
+A = <input type="text" id="Eintrag108" maxlength="4" ></input> FE <button id="Pruef108" onclick="Aufgabe108()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe108() { 
+                                                
+                          if (Eintrag108.value=="4,26") {alert("Richtig"); document.getElementById("Pruef108").disabled= true;
+                          }  
+                           
+                          else if (Eintrag108.value!=="4,26" && Eintrag108.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag108").value="4,26"; window.open('Integral_Aufgabe108.html');           
+                          document.getElementById("Pruef108").disabled= true;}
+                               
+                          else if (Eintrag108.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+
+        <!--//Aufgabe 109-->                  
+
+  <h2>Aufgabe 109</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>2</mn></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mfrac><mn>1</mn><mn>8</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>4</mn></msup><mo>+</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+von x = -3 bis x = 3.</p>    
+
+<button  onclick="window.open('Integral_Aufgabe109.html');" >Lösung</button></p>
+
+<!--//Aufgabe 110-->
+
+<h2>Aufgabe 110</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>0</mn><mo>,</mo><mn>5</mn><mi mathvariant="normal">x</mi></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></math></p>
+
+von x = -1 bis x = 1. </p>
+           
+A = <input type="text" id="Eintrag110" maxlength="4" ></input> FE <button id="Pruef110" onclick="Aufgabe110()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe110() { 
+                                                
+                          if (Eintrag110.value=="7,33") {alert("Richtig"); document.getElementById("Pruef110").disabled= true;
+                          }  
+                           
+                          else if (Eintrag110.value!=="7,33" && Eintrag110.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag110").value="7,33"; window.open('Integral_Aufgabe110.html');           
+                          document.getElementById("Pruef110").disabled= true;}
+                               
+                          else if (Eintrag110.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+
+         <!--//Aufgabe 111-->                      
+
+  <h2>Aufgabe 111</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mfrac><mn>9</mn><mn>8</mn></mfrac></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mfrac><mn>1</mn><mn>8</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>4</mn></msup><mo>+</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+von x = -3 bis x = 3.</p>    
+
+<button  onclick="window.open('Integral_Aufgabe111.html');" >Lösung</button></p>
+
+<!--//Aufgabe 112-->
+
+<h2>Aufgabe 112</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi mathvariant="normal">x</mi></math></p>
+
+von x = 0 bis x = 1. </p>
+           
+A = <input type="text" id="Eintrag112" maxlength="4" ></input> FE <button id="Pruef112" onclick="Aufgabe112()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe112() { 
+                                                
+                          if (Eintrag112.value=="0,25") {alert("Richtig"); document.getElementById("Pruef112").disabled= true;
+                          }  
+                           
+                          else if (Eintrag112.value!=="0,25" && Eintrag112.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag112").value="0,25"; window.open('Integral_Aufgabe112.html');           
+                          document.getElementById("Pruef112").disabled= true;}
+                               
+                          else if (Eintrag112.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>
+
+ <!--//Aufgabe 113-->  
+
+<h2>Aufgabe 113</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn><mi mathvariant="normal">x</mi></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe113.html');" >Lösung</button></p>
+
+<!--//Aufgabe 114-->
+
+<h2>Aufgabe 114</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>+</mo><mn>3</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+A = <input type="text" id="Eintrag114" maxlength="4" ></input> FE <button id="Pruef114" onclick="Aufgabe114()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe114() { 
+                                                
+                          if (Eintrag114.value=="1,33") {alert("Richtig"); document.getElementById("Pruef114").disabled= true;
+                          }  
+                           
+                          else if (Eintrag114.value!=="1,33" && Eintrag114.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag114").value="1,33"; window.open('Integral_Aufgabe114.html');           
+                          document.getElementById("Pruef114").disabled= true;}
+                               
+                          else if (Eintrag114.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>                      
+
+<!--//Aufgabe 115-->  
+
+<h2>Aufgabe 115</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mi mathvariant="normal">x</mi></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>+</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe115.html');" >Lösung</button></p>
+
+<!--//Aufgabe 116-->
+
+<h2>Aufgabe 116</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">t</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi mathvariant="normal">t</mi><mn>2</mn></msup></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">t</mi></mfenced></msub><mo>=</mo><mn>2</mn></math></p>
+
+A = <input type="text" id="Eintrag116" maxlength="5" ></input> FE <button id="Pruef116" onclick="Aufgabe116()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe116() { 
+                                                
+                          if (Eintrag116.value=="15,08") {alert("Richtig"); document.getElementById("Pruef116").disabled= true;
+                          }  
+                           
+                          else if (Eintrag116.value!=="15,08" && Eintrag116.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag116").value="15,08"; window.open('Integral_Aufgabe116.html');           
+                          document.getElementById("Pruef116").disabled= true;}
+                               
+                          else if (Eintrag116.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>                      
+
+<!--//Aufgabe 117-->  
+
+<h2>Aufgabe 117</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">t</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">t</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi mathvariant="normal">t</mi></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">t</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mfrac><mn>3</mn><mn>4</mn></mfrac><mi mathvariant="normal">t</mi></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe117.html');" >Lösung</button></p>
+
+<!--//Aufgabe 118-->
+
+<h2>Aufgabe 118</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi mathvariant="normal">x</mi></math></p>
+
+A = <input type="text" id="Eintrag118" maxlength="4" ></input> FE <button id="Pruef118" onclick="Aufgabe118()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe118() { 
+                                                
+                          if (Eintrag118.value=="3,09") {alert("Richtig"); document.getElementById("Pruef118").disabled= true;
+                          }  
+                           
+                          else if (Eintrag118.value!=="3,09" && Eintrag118.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag118").value="3,09"; window.open('Integral_Aufgabe118.html');           
+                          document.getElementById("Pruef118").disabled= true;}
+                               
+                          else if (Eintrag118.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>                      
+
+<!--//Aufgabe 119-->  
+
+<h2>Aufgabe 119</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mi mathvariant="normal">x</mi></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>3</mn><mi mathvariant="normal">x</mi></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe119.html');" >Lösung</button></p>
+
+<!--//Aufgabe 120-->
+
+<h2>Aufgabe 120</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>4</mn><mi mathvariant="normal">x</mi></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>+</mo><mn>4</mn><mi mathvariant="normal">x</mi></math></p>
+
+A = <input type="text" id="Eintrag120" maxlength="2" ></input> FE <button id="Pruef120" onclick="Aufgabe120()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe120() { 
+                                                
+                          if (Eintrag120.value=="16") {alert("Richtig"); document.getElementById("Pruef120").disabled= true;
+                          }  
+                           
+                          else if (Eintrag120.value!=="16" && Eintrag120.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag120").value="16"; window.open('Integral_Aufgabe120.html');           
+                          document.getElementById("Pruef120").disabled= true;}
+                               
+                          else if (Eintrag120.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>                      
+
+<!--//Aufgabe 121-->  
+
+<h2>Aufgabe 121</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mfrac><mn>1</mn><mrow><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></mrow></mfrac></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>2</mn><mo>,</mo><mn>5</mn><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>5</mn><mo>,</mo><mn>25</mn></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe121.html');" >Lösung</button></p>
+
+<!--//Aufgabe 122-->
+
+<h2>Aufgabe 122</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mrow><mn>3</mn><mo>&#xA0;</mo></mrow></msup><mo>+</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mi mathvariant="normal">x</mi></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>2</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mi mathvariant="normal">x</mi></math></p>
+
+A = <input type="text" id="Eintrag122" maxlength="4" ></input> FE <button id="Pruef122" onclick="Aufgabe122()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe122() { 
+                                                
+                          if (Eintrag122.value=="3,09") {alert("Richtig"); document.getElementById("Pruef122").disabled= true;
+                          }  
+                           
+                          else if (Eintrag122.value!=="3,09" && Eintrag122.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag122").value="3,09"; window.open('Integral_Aufgabe122.html');           
+                          document.getElementById("Pruef122").disabled= true;}
+                               
+                          else if (Eintrag122.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>                      
+
+<!--//Aufgabe 123-->  
+
+<h2>Aufgabe 123</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>2</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi mathvariant="normal">x</mi><mo>+</mo><mn>1</mn></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe123.html');" >Lösung</button></p>
+
+<!--//Aufgabe 124-->
+
+<h2>Aufgabe 124</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>4</mn></msup><mo>+</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>+</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mn>2</mn><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>+</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+A = <input type="text" id="Eintrag124" maxlength="5" ></input> FE <button id="Pruef124" onclick="Aufgabe124()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe124() { 
+                                                
+                          if (Eintrag124.value=="12,15") {alert("Richtig"); document.getElementById("Pruef124").disabled= true;
+                          }  
+                           
+                          else if (Eintrag124.value!=="12,15" && Eintrag124.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag124").value="12,15"; window.open('Integral_Aufgabe124.html');           
+                          document.getElementById("Pruef124").disabled= true;}
+                               
+                          else if (Eintrag124.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>     
+
+<!--//Aufgabe 125-->  
+
+<h2>Aufgabe 125</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>5</mn><mo>&#x2212;</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>4</mn><mrow><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></mrow></mfrac></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe125.html');" >Lösung</button></p>
+
+<!--//Aufgabe 126-->
+
+<h2>Aufgabe 126</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>12</mn></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>3</mn></math></p>
+
+A = <input type="text" id="Eintrag126" maxlength="2" ></input> FE <button id="Pruef126" onclick="Aufgabe126()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe126() { 
+                                                
+                          if (Eintrag126.value=="36") {alert("Richtig"); document.getElementById("Pruef126").disabled= true;
+                          }  
+                           
+                          else if (Eintrag126.value!=="36" && Eintrag126.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag126").value="36"; window.open('Integral_Aufgabe126.html');           
+                          document.getElementById("Pruef126").disabled= true;}
+                               
+                          else if (Eintrag126.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>     
+
+<!--//Aufgabe 127-->  
+
+<h2>Aufgabe 127</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>2</mn><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>7</mn><mi mathvariant="normal">x</mi></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi mathvariant="normal">x</mi></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe127.html');" >Lösung</button></p>
+
+<!--//Aufgabe 128-->
+
+<h2>Aufgabe 128</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>4</mn><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>14</mn><mi mathvariant="normal">x</mi><mo>+</mo><mn>1</mn></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>8</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>10</mn><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>7</mn></math></p>
+
+A = <input type="text" id="Eintrag128" maxlength="5" ></input> FE <button id="Pruef128" onclick="Aufgabe128()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe128() { 
+                                                
+                          if (Eintrag128.value=="12,32") {alert("Richtig"); document.getElementById("Pruef128").disabled= true;
+                          }  
+                           
+                          else if (Eintrag128.value!=="12,32" && Eintrag128.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag128").value="12,32"; window.open('Integral_Aufgabe128.html');           
+                          document.getElementById("Pruef128").disabled= true;}
+                               
+                          else if (Eintrag128.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>     
+
+<!--//Aufgabe 129-->  
+
+<h2>Aufgabe 129</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mroot><mrow><mn>13</mn><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>12</mn></mrow><mn>3</mn></mroot></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi mathvariant="normal">x</mi></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe129.html');" >Lösung</button></p>
+
+<!--//Aufgabe 130-->
+
+<h2>Aufgabe 130</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi>sin</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>0</mn><mo>,</mo><mn>5</mn></math></p>
+
+im Bereich zwischen x = 0 und x = π. </p> 
+
+A = <input type="text" id="Eintrag130" maxlength="4" ></input> FE <button id="Pruef130" onclick="Aufgabe130()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe130() { 
+                                                
+                          if (Eintrag130.value=="0,68") {alert("Richtig"); document.getElementById("Pruef130").disabled= true;
+                          }  
+                           
+                          else if (Eintrag130.value!=="0,68" && Eintrag130.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag130").value="0,68"; window.open('Integral_Aufgabe130.html');           
+                          document.getElementById("Pruef130").disabled= true;}
+                               
+                          else if (Eintrag130.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>     
+
+<!--//Aufgabe 131-->  
+
+<h2>Aufgabe 131</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi>sin</mi><mfenced><mrow><mn>2</mn><mi mathvariant="normal">x</mi></mrow></mfenced></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi>sin</mi><mfenced><mrow><mn>0</mn><mo>,</mo><mn>5</mn></mrow></mfenced></math></p>
+
+im Bereich zwischen x = 0 und x = π.</p>
+
+<button  onclick="window.open('Integral_Aufgabe131.html');" >Lösung</button></p>
+
+<!--//Aufgabe 132-->
+
+<h2>Aufgabe 132</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mfenced><mrow><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>1</mn></mrow></mfenced><mn>2</mn></msup></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi mathvariant="normal">x</mi><mo>+</mo><mn>1</mn></math></p>
+
+von x = 1 bis x = 3.</p> 
+
+A = <input type="text" id="Eintrag132" maxlength="4" ></input> FE <button id="Pruef132" onclick="Aufgabe132()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe132() { 
+                                                
+                          if (Eintrag132.value=="3,33") {alert("Richtig"); document.getElementById("Pruef132").disabled= true;
+                          }  
+                           
+                          else if (Eintrag132.value!=="3,33" && Eintrag132.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag132").value="3,33"; window.open('Integral_Aufgabe132.html');           
+                          document.getElementById("Pruef132").disabled= true;}
+                               
+                          else if (Eintrag132.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>     
+
+<!--//Aufgabe 133-->  
+
+<h2>Aufgabe 133</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msqrt><mi mathvariant="normal">x</mi></msqrt></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi mathvariant="normal">x</mi><mo>+</mo><mn>3</mn></math></p>
+
+von x = 4 bis x = 9.    </p>
+
+<button  onclick="window.open('Integral_Aufgabe133.html');" >Lösung</button></p>
+
+<!--//Aufgabe 134-->
+
+<h2>Aufgabe 134</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi>sin</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi>cos</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></math></p>
+
+von x = 0 bis x = π/4.</p> 
+
+A = <input type="text" id="Eintrag134" maxlength="4" ></input> FE <button id="Pruef134" onclick="Aufgabe134()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe134() { 
+                                                
+                          if (Eintrag134.value=="0,41") {alert("Richtig"); document.getElementById("Pruef134").disabled= true;
+                          }  
+                           
+                          else if (Eintrag134.value!=="0,41" && Eintrag134.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag134").value="0,41"; window.open('Integral_Aufgabe134.html');           
+                          document.getElementById("Pruef134").disabled= true;}
+                               
+                          else if (Eintrag134.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>     
+
+<!--//Aufgabe 135-->  
+
+<h2>Aufgabe 135</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>tan</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi>sin</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></math></p>
+
+von x = 0 bis x = π/3.    </p>
+
+<button  onclick="window.open('Integral_Aufgabe135.html');" >Lösung</button></p>
+
+<!--//Aufgabe 136-->
+
+<h2>Aufgabe 136</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">e</mi><mi mathvariant="normal">x</mi></msup></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi mathvariant="normal">x</mi><mo>+</mo><mn>2</mn></math></p>
+
+von x = -1 bis x = 1.</p> 
+
+A = <input type="text" id="Eintrag136" maxlength="4" ></input> FE <button id="Pruef136" onclick="Aufgabe136()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe136() { 
+                                                
+                          if (Eintrag136.value=="1,65") {alert("Richtig"); document.getElementById("Pruef136").disabled= true;
+                          }  
+                           
+                          else if (Eintrag136.value!=="1,65" && Eintrag136.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag136").value="1,65"; window.open('Integral_Aufgabe136.html');           
+                          document.getElementById("Pruef136").disabled= true;}
+                               
+                          else if (Eintrag136.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>  
+
+<!--//Aufgabe 137-->  
+
+<h2>Aufgabe 137</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi>ln</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><msup><mi mathvariant="normal">e</mi><mn>2</mn></msup></math></p>
+
+von x = 1 bis x = e.   </p>
+
+<button  onclick="window.open('Integral_Aufgabe137.html');" >Lösung</button></p>
+
+<!--//Aufgabe 138-->
+
+<h2>Aufgabe 138</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi>tan</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi>cot</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></math></p>
+
+von x = 0,1 bis x = 1,2.</p> 
+
+A = <input type="text" id="Eintrag138" maxlength="4" ></input> FE <button id="Pruef138" onclick="Aufgabe138()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe138() { 
+                                                
+                          if (Eintrag138.value=="2,01") {alert("Richtig"); document.getElementById("Pruef138").disabled= true;
+                          }  
+                           
+                          else if (Eintrag138.value!=="2,01" && Eintrag138.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag138").value="2,01"; window.open('Integral_Aufgabe138.html');           
+                          document.getElementById("Pruef138").disabled= true;}
+                               
+                          else if (Eintrag138.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>     
+
+<!--//Aufgabe 139-->  
+
+<h2>Aufgabe 139</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#xd7;</mo><msup><mi mathvariant="normal">e</mi><mi mathvariant="normal">x</mi></msup></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">e</mi><mi mathvariant="normal">x</mi></msup></math></p>
+
+von x = -1 bis x = 1.   </p>
+
+<button  onclick="window.open('Integral_Aufgabe139.html');" >Lösung</button></p>
+
+<!--//Aufgabe 140-->
+
+<h2>Aufgabe 140</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi>ln</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mfenced><mrow><mi>ln</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></mrow></mfenced><mn>2</mn></msup></math></p>
+
+von x = 1 bis x = e.</p> 
+
+A = <input type="text" id="Eintrag140" maxlength="4" ></input> FE <button id="Pruef140" onclick="Aufgabe140()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe140() { 
+                                                
+                          if (Eintrag140.value=="0,28") {alert("Richtig"); document.getElementById("Pruef140").disabled= true;
+                          }  
+                           
+                          else if (Eintrag140.value!=="0,28" && Eintrag140.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag140").value="0,28"; window.open('Integral_Aufgabe140.html');           
+                          document.getElementById("Pruef140").disabled= true;}
+                               
+                          else if (Eintrag140.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>     
+
+<!--//Aufgabe 141-->  
+
+<h2>Aufgabe 141</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>0</mn><mo>,</mo><mn>6</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi mathvariant="normal">x</mi></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mn>1</mn><mo>,</mo><mn>5</mn><mi mathvariant="normal">x</mi></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe141.html');" >Lösung</button></p>
+
+<!--//Aufgabe 142-->
+
+<h2>Aufgabe 142</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>2</mn><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+A = <input type="text" id="Eintrag142" maxlength="4" ></input> FE <button id="Pruef142" onclick="Aufgabe142()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe142() { 
+                                                
+                          if (Eintrag142.value=="3,09") {alert("Richtig"); document.getElementById("Pruef142").disabled= true;
+                          }  
+                           
+                          else if (Eintrag142.value!=="3,09" && Eintrag142.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag142").value="3,09"; window.open('Integral_Aufgabe142.html');           
+                          document.getElementById("Pruef142").disabled= true;}
+                               
+                          else if (Eintrag142.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>     
+
+<!--//Aufgabe 143-->  
+
+<h2>Aufgabe 143</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mfrac><mn>1</mn><mn>12</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe143.html');" >Lösung</button></p>
+
+<!--//Aufgabe 144-->
+
+<h2>Aufgabe 144</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>4</mn></msup></math></p>
+
+A = <input type="text" id="Eintrag144" maxlength="4" ></input> FE <button id="Pruef144" onclick="Aufgabe144()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe144() { 
+                                                
+                          if (Eintrag144.value=="0,26") {alert("Richtig"); document.getElementById("Pruef144").disabled= true;
+                          }  
+                           
+                          else if (Eintrag144.value!=="0,26" && Eintrag144.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag144").value="0,26"; window.open('Integral_Aufgabe144.html');           
+                          document.getElementById("Pruef144").disabled= true;}
+                               
+                          else if (Eintrag144.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>     
+
+<!--//Aufgabe 145-->  
+
+<h2>Aufgabe 145</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>9</mn></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe145.html');" >Lösung</button></p>
+
+<!--//Aufgabe 146-->
+
+<h2>Aufgabe 146</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mfrac><mn>5</mn><mn>6</mn></mfrac></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mfrac><mn>7</mn><mn>3</mn></mfrac></math></p>
+
+A = <input type="text" id="Eintrag146" maxlength="1" ></input> FE <button id="Pruef146" onclick="Aufgabe146()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe146() { 
+                                                
+                          if (Eintrag146.value=="2") {alert("Richtig"); document.getElementById("Pruef146").disabled= true;
+                          }  
+                           
+                          else if (Eintrag146.value!=="2" && Eintrag146.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag146").value="2"; window.open('Integral_Aufgabe146.html');           
+                          document.getElementById("Pruef146").disabled= true;}
+                               
+                          else if (Eintrag146.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script>     
+
+<!--//Aufgabe 147-->  
+
+<h2>Aufgabe 147</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>+</mo><mn>7</mn></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi mathvariant="normal">x</mi><mo>+</mo><mn>5</mn></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe147.html');" >Lösung</button></p>
+
+<!--//Aufgabe 148-->
+
+<h2>Aufgabe 148</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>0</mn><mo>,</mo><mn>5</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>0</mn><mo>,</mo><mn>5</mn></math></p>
+
+A = <input type="text" id="Eintrag148" maxlength="4" ></input> FE <button id="Pruef148" onclick="Aufgabe148()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe148() { 
+                                                
+                          if (Eintrag148.value=="0,66") {alert("Richtig"); document.getElementById("Pruef148").disabled= true;
+                          }  
+                           
+                          else if (Eintrag148.value!=="0,66" && Eintrag148.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag148").value="0,66"; window.open('Integral_Aufgabe148.html');           
+                          document.getElementById("Pruef148").disabled= true;}
+                               
+                          else if (Eintrag148.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script> 
+                      
+<!--//Aufgabe 149-->  
+
+<h2>Aufgabe 149</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>6</mn><mi mathvariant="normal">x</mi><mo>+</mo><mn>8</mn></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>3</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>18</mn><mi mathvariant="normal">x</mi><mo>+</mo><mn>24</mn></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe149.html');" >Lösung</button></p>
+
+<!--//Aufgabe 150-->
+
+<h2>Aufgabe 150</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mfrac><mn>1</mn><mn>9</mn></mfrac><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>6</mn></math></p>
+
+A = <input type="text" id="Eintrag150" maxlength="2" ></input> FE <button id="Pruef150" onclick="Aufgabe150()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe150() { 
+                                                
+                          if (Eintrag150.value=="40") {alert("Richtig"); document.getElementById("Pruef150").disabled= true;
+                          }  
+                           
+                          else if (Eintrag150.value!=="40" && Eintrag150.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag150").value="40"; window.open('Integral_Aufgabe150.html');           
+                          document.getElementById("Pruef150").disabled= true;}
+                               
+                          else if (Eintrag150.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script> 
+                      
+<!--//Aufgabe 151-->  
+
+<h2>Aufgabe 151</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>6</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>8</mn><mi mathvariant="normal">x</mi></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>4</mn><mi mathvariant="normal">x</mi></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe151.html');" >Lösung</button></p>
+
+<!--//Aufgabe 152-->
+
+<h2>Aufgabe 152</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msup><mi mathvariant="normal">x</mi><mn>3</mn></msup><mo>&#x2212;</mo><mn>2</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>3</mn><mi mathvariant="normal">x</mi></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>5</mn><mi mathvariant="normal">x</mi></math></p>
+
+A = <input type="text" id="Eintrag152" maxlength="5" ></input> FE <button id="Pruef152" onclick="Aufgabe152()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe152() { 
+                                                
+                          if (Eintrag152.value=="49,34") {alert("Richtig"); document.getElementById("Pruef152").disabled= true;
+                          }  
+                           
+                          else if (Eintrag152.value!=="49,34" && Eintrag152.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag152").value="49,34"; window.open('Integral_Aufgabe152.html');           
+                          document.getElementById("Pruef152").disabled= true;}
+                               
+                          else if (Eintrag152.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script> 
+                      
+<!--//Aufgabe 153-->  
+
+<h2>Aufgabe 153</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>2</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mi mathvariant="normal">x</mi><mo>+</mo><mn>3</mn></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe153.html');" >Lösung</button></p>
+
+<!--//Aufgabe 154-->
+
+<h2>Aufgabe 154</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mo>&#x2212;</mo><mn>3</mn><mo>+</mo><mn>8</mn><mi mathvariant="normal">x</mi><mo>&#x2212;</mo><mn>2</mn><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>6</mn><mo>&#x2212;</mo><mn>4</mn><mi mathvariant="normal">x</mi><mo>+</mo><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></math></p>
+
+A = <input type="text" id="Eintrag154" maxlength="1" ></input> FE <button id="Pruef154" onclick="Aufgabe154()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe154() { 
+                                                
+                          if (Eintrag154.value=="4") {alert("Richtig"); document.getElementById("Pruef154").disabled= true;
+                          }  
+                           
+                          else if (Eintrag154.value!=="4" && Eintrag154.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag154").value="4"; window.open('Integral_Aufgabe154.html');           
+                          document.getElementById("Pruef154").disabled= true;}
+                               
+                          else if (Eintrag154.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script> 
+                      
+<!--//Aufgabe 155-->  
+
+<h2>Aufgabe 155</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>4</mn><mo>&#xd7;</mo><msqrt><mi mathvariant="normal">x</mi></msqrt></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mrow><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></mrow><mn>2</mn></mfrac></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe155.html');" >Lösung</button></p>
+
+<!--//Aufgabe 156-->
+
+<h2>Aufgabe 156</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><msqrt><mrow><mn>2</mn><mi mathvariant="normal">x</mi></mrow></msqrt></math></p>
+
+und</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mrow><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></mrow><mn>2</mn></mfrac></math></p>
+
+A = <input type="text" id="Eintrag156" maxlength="4" ></input> FE <button id="Pruef156" onclick="Aufgabe156()">Prüfen</button></p>
+ 
+                      <script>
+                        function Aufgabe156() { 
+                                                
+                          if (Eintrag156.value=="1,34") {alert("Richtig"); document.getElementById("Pruef156").disabled= true;
+                          }  
+                           
+                          else if (Eintrag156.value!=="1,34" && Eintrag156.value!=="") {alert("Leider falsch. Die Lösung wird angezeigt."); document.getElementById("Eintrag156").value="1,34"; window.open('Integral_Aufgabe156.html');           
+                          document.getElementById("Pruef156").disabled= true;}
+                               
+                          else if (Eintrag156.value=="") {alert("Bitte eine Eingabe machen")}}
+                         
+                      </script> 
+                      
+<!--//Aufgabe 157-->  
+
+<h2>Aufgabe 157</h2><p>
+
+Berechnen Sie den Flächeninhalt A zwischen</p>
+
+<math mathsize="1em"><msub><mi mathvariant="normal">f</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mn>2</mn><mo>&#xd7;</mo><msqrt><mi mathvariant="normal">x</mi></msqrt></math></p>
+
+und</p> 
+
+<math mathsize="1em"><msub><mi mathvariant="normal">g</mi><mfenced><mi mathvariant="normal">x</mi></mfenced></msub><mo>=</mo><mfrac><mrow><msup><mi mathvariant="normal">x</mi><mn>2</mn></msup></mrow><mn>4</mn></mfrac></math></p>
+
+<button  onclick="window.open('Integral_Aufgabe157.html');" >Lösung</button></p>
+
+
+<a href= "index.html" ><p class="Text2" > <span style= "background-color:white;">zurück</span></p></a></div></main>
+                    
+        <script>
+            document.body.addEventListener("input", function(inputEvent) {
+              const eingabeFeld = inputEvent.target;
+              if (eingabeFeld.maxLength > 0 && eingabeFeld.value.length > eingabeFeld.maxLength) {
+                eingabeFeld.value = eingabeFeld.value.substr(0, eingabeFeld.maxLength);
+              }
+            })
+          </script>        
+         
+
+        </body></html>
+
+                      
+                    
